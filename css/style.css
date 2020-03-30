@@ -8,8 +8,6 @@ body {
     background: #e5e5e5;
     color: #25282b;
 
-    text-align: center;
-
     margin: 0;
 }
 
@@ -21,6 +19,10 @@ body {
     margin-right: auto;
 
     display: flex;
+}
+
+#intro {
+    width: 300px;
 }
 
 button {
@@ -38,7 +40,12 @@ button {
     background: #ff5e84;
 }
 
-#footer a {
+#buttons,
+footer {
+    text-align: center;
+}
+
+footer a {
     color: #25282b;
     text-decoration: none;
 }
