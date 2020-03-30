@@ -11,18 +11,34 @@ body {
     margin: 0;
 }
 
+.hide {
+    display: none;
+}
+
 #container {
     width: 80%;
     max-width: 980px;
 
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto;
 
     display: flex;
 }
 
 #intro {
     width: 300px;
+
+    margin-right: 20px;
+}
+
+main {
+    margin: 32px 0 ;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-bottom: 32px;
 }
 
 button {
@@ -33,14 +49,31 @@ button {
     font-weight: bold;
 
     background: none;
+
+    cursor: pointer;
+    outline: none;
 }
 
-.fat {
+button:hover{
+    text-decoration: underline;
+}
+
+button.fat {
     color: #ffffff;
     background: #ff5e84;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 20px 0;
+
+    box-shadow: 10px 8px 16px #ff5e8432;
 }
 
-#buttons,
+button.fat:hover {
+    text-decoration: none;
+}
+
 footer {
     text-align: center;
 }
@@ -50,6 +83,7 @@ footer a {
     text-decoration: none;
 }
 
-.hide {
-    display: none;
+footer a:hover {
+    color: #ff5e84;
+    font-weight: bold;
 }
