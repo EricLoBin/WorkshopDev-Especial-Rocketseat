@@ -1,8 +1,26 @@
+/*
+ * CSS Tricks
+ *
+ * https://css-tricks.com/
+ */
+
 body {
     background: #e5e5e5;
     color: #25282b;
 
     text-align: center;
+
+    margin: 0;
+}
+
+#container {
+    width: 80%;
+    max-width: 980px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
 }
 
 button {
