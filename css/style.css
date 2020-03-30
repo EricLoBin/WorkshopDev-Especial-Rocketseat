@@ -4,6 +4,8 @@
  * https://css-tricks.com/
  */
 
+/* GLOBAL */
+
 body {
     background: #e5e5e5;
     color: #25282b;
@@ -39,11 +41,41 @@ p, .description{
     letter-spacing: 0.1px;
 }
 
+.button {
+    color: #ffffff;
+    background: #ff5e84;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 20px 0;
+
+    box-shadow: 10px 8px 16px #ff5e8432;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0984e3;
+    text-decoration: none;
+}
 
 
 
 
 
+
+
+
+
+/*padrão*/
 
 #container {
     width: 80%;
@@ -89,22 +121,6 @@ button {
 
 button:hover{
     text-decoration: underline;
-}
-
-button.fat {
-    color: #ffffff;
-    background: #ff5e84;
-
-    width: 150px;
-    height: 40px;
-
-    border-radius: 20px 0;
-
-    box-shadow: 10px 8px 16px #ff5e8432;
-}
-
-button.fat:hover {
-    text-decoration: none;
 }
 
 footer {
@@ -297,30 +313,12 @@ form button:hover {
     color: #25282b;
 }
 
+#page-ideas nav li a.button {
+    color: #ffffff;
+}
+
 #page-ideas nav li:last-child {
     margin: 0;
-}
-
-#page-ideas nav li:last-child a:hover {
-    background-color: #0984e3;
-    text-decoration: none;
-}
-
-#page-ideas nav li:last-child a {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    
-    width: 150px;
-    height: 40px;
-
-    background-color: #ff5e84;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 8px;
 }
 
 section#title {
