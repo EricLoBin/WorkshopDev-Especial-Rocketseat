@@ -15,6 +15,22 @@ body {
     display: none;
 }
 
+a {
+    color: #ff5e84;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
 #container {
     width: 80%;
     max-width: 980px;
@@ -78,12 +94,11 @@ footer {
     text-align: center;
 }
 
-footer a {
-    color: #25282b;
-    text-decoration: none;
+.idea {
+    display: flex;
 }
 
-footer a:hover {
-    color: #ff5e84;
-    font-weight: bold;
+.idea img {
+    width: 60px;
+    height: 60px;
 }
