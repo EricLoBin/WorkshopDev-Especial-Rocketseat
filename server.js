@@ -1,7 +1,4 @@
-const message = "Starting server"
+const express = require("express")
+const server = express()
 
-function soma(){
-    console.log(1 + 1)
-}
-soma()
-console.log(message)
+server.listen(3000)
