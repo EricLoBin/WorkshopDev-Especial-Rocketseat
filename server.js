@@ -4,19 +4,97 @@ const port = 3000
 const express = require("express")
 const server = express()
 
+
+
+//
+const oi = "oidobac"
+
+const ideas = [
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
+        title: "Cursos de programação",
+        category: "Estudo",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
+        title: "Exercícios",
+        category: "Saúde",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
+        title: "Meditação",
+        category: "Mentalidade",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729032.svg",
+        title: "Karaokê",
+        category: "Diversão em família",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729038.svg",
+        title: "Pintura",
+        category: "Imaginação",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+    {
+        img: "https://image.flaticon.com/icons/svg/2729/2729048.svg",
+        title: "Recortes",
+        category: "Criatividade",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat saepe sit quia quo alias",
+        url: "http://localhost:3000/#"
+    },
+]
+
+//
+
+
+
+
+
 //configurar arquivos estaticos (css, script, imagens)
 server.use(express.static("public"))
+
+
+//Configuração nunjucks
+const nunjucks = require("nunjucks")
+nunjucks.configure("views", {
+    express: server,
+    noCache: true,
+})
+//
 
 
 //rota criada
 server.get("/", function(req, res) {
     console.log("request index")
-    return res.sendFile(__dirname + "/index.html")
+
+    const reverseIdeas = [...ideas].reverse()
+
+    let lastIdeas = []
+    for (let idea of reverseIdeas){
+        if (lastIdeas.length < 2){
+            lastIdeas.push(idea)
+        }
+    }
+
+    return res.render("index.html", {ideas: lastIdeas})
 })
 
 server.get("/ideias", function(req, res) {
     console.log("request ideias")
-    return res.sendFile(__dirname + "/public/ideias.html")
+
+    const reverseIdeas = [...ideas].reverse()
+
+    return res.render("ideias.html", {ideas: reverseIdeas})
 })
 
 
