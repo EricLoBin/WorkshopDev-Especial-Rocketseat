@@ -61,6 +61,9 @@ const ideas = [
 
 
 
+//habilitar req.body
+server.use(express.urlencoded({ extended: true }))
+
 
 //configurar arquivos estaticos (css, script, imagens)
 server.use(express.static("public"))
@@ -112,6 +115,35 @@ server.get("/ideias", function(req, res) {
         const reverseIdeas = [...rows].reverse()
 
         return res.render("ideias.html", {ideas: reverseIdeas})
+    })
+})
+
+
+server.post("/", function(req, res) {
+    //inserir dados na tabela
+    const query = `
+        INSERT INTO ideas(
+            image,
+            title,
+            category,
+            description,
+            link
+        ) VALUES(?, ?, ?, ?, ?);
+    `
+    const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link
+    ]
+    db.run(query, values, function(err) {
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados")
+        }
+
+        return res.redirect("/ideias")
     })
 })
 
