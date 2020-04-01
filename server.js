@@ -81,9 +81,12 @@ server.get("/", function(req, res) {
 
     //consultar dados na tabela
     db.all(`SELECT * FROM ideas`, function(err, rows) {
-        if (err) return console.log(err)
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados")
+        }
 
-        const reverseIdeas = [...ideas].reverse()
+        const reverseIdeas = [...rows].reverse()
 
         let lastIdeas = []
         for (let idea of reverseIdeas){
@@ -100,9 +103,16 @@ server.get("/", function(req, res) {
 server.get("/ideias", function(req, res) {
     console.log("request ideias")
 
-    const reverseIdeas = [...ideas].reverse()
+    db.all(`SELECT * FROM ideas`, function(err, rows) {
+        if (err) {
+            console.log(err)
+            return res.send("Erro no banco de dados")
+        }
 
-    return res.render("ideias.html", {ideas: reverseIdeas})
+        const reverseIdeas = [...rows].reverse()
+
+        return res.render("ideias.html", {ideas: reverseIdeas})
+    })
 })
 
 

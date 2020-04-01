@@ -42,11 +42,13 @@ db.serialize(function() {
     */
 
     //consultar dados na tabela
+    /*
     db.all(`SELECT * FROM ideas`, function(err, rows) {
         if (err) return console.log(err)
 
         console.log(rows)
     })
+    */
 
     //deletar um dado
     /*
