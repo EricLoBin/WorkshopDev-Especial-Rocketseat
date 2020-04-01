@@ -6,9 +6,11 @@ const server = express()
 
 
 
-//
-const oi = "oidobac"
+const db = require("./db")
 
+
+//
+/*
 const ideas = [
     {
         img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
@@ -53,7 +55,7 @@ const ideas = [
         url: "http://localhost:3000/#"
     },
 ]
-
+*/
 //
 
 
@@ -77,16 +79,22 @@ nunjucks.configure("views", {
 server.get("/", function(req, res) {
     console.log("request index")
 
-    const reverseIdeas = [...ideas].reverse()
+    //consultar dados na tabela
+    db.all(`SELECT * FROM ideas`, function(err, rows) {
+        if (err) return console.log(err)
 
-    let lastIdeas = []
-    for (let idea of reverseIdeas){
-        if (lastIdeas.length < 2){
-            lastIdeas.push(idea)
+        const reverseIdeas = [...ideas].reverse()
+
+        let lastIdeas = []
+        for (let idea of reverseIdeas){
+            if (lastIdeas.length < 2){
+                lastIdeas.push(idea)
+            }
         }
-    }
 
-    return res.render("index.html", {ideas: lastIdeas})
+        return res.render("index.html", {ideas: lastIdeas})
+    })
+
 })
 
 server.get("/ideias", function(req, res) {
