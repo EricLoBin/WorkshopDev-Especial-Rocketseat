@@ -27,8 +27,8 @@ function checkFields(event) {
         }
     })
 
-    if (isEmpty) {
+    /*if (isEmpty) {
         event.preventDefault()
         alert("Por favor preencha todos os campos")
-    }
+    }*/
 }
